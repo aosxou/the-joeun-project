@@ -145,6 +145,7 @@
   background: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%);
   color: white;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
 }
 
 .difficulty-btn.normal {
@@ -171,6 +172,39 @@
   background: linear-gradient(135deg, #F44336 0%, #D32F2F 100%);
   color: white;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);
+}
+
+/* Focus styles for all difficulty buttons */
+.difficulty-btn.easy:focus {
+  outline: 2px solid #4CAF50;
+  outline-offset: 2px;
+}
+
+/* Focus styles for all difficulty buttons */
+.difficulty-btn:focus,
+.difficulty-btn:focus-visible {
+  outline: 2px solid;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(30, 136, 229, 0.2);
+}
+
+.difficulty-btn.easy:focus,
+.difficulty-btn.easy:focus-visible {
+  outline-color: #4CAF50;
+  box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.2);
+}
+
+.difficulty-btn.normal:focus,
+.difficulty-btn.normal:focus-visible {
+  outline-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(30, 136, 229, 0.2);
+}
+
+.difficulty-btn.hard:focus,
+.difficulty-btn.hard:focus-visible {
+  outline-color: #F44336;
+  box-shadow: 0 0 0 4px rgba(244, 67, 54, 0.2);
 }
 
 .difficulty-label {
@@ -194,17 +228,169 @@
   color: var(--text-light);
 }
 
+/* Tablet */
+@media (min-width: 481px) and (max-width: 768px) {
+  .main-menu {
+    padding: 40px 26px;
+  }
+
+  .menu-header {
+    margin-bottom: 28px;
+  }
+
+  .logo {
+    font-size: 44px;
+    margin-bottom: 14px;
+  }
+
+  .title {
+    font-size: 30px;
+    margin-bottom: 7px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .menu-character {
+    margin: 28px 0;
+    padding: 28px 18px;
+  }
+
+  .character-large {
+    font-size: 64px;
+    margin-bottom: 18px;
+  }
+
+  .welcome-message {
+    font-size: 15px;
+  }
+
+  .game-info {
+    gap: 11px;
+    margin: 26px 0;
+  }
+
+  .info-item {
+    padding: 15px;
+    font-size: 13px;
+  }
+
+  .info-item .icon {
+    font-size: 23px;
+  }
+
+  .difficulty-section {
+    margin: 28px 0;
+  }
+
+  .difficulty-section h2 {
+    font-size: 15px;
+    margin-bottom: 14px;
+  }
+
+  .difficulty-buttons {
+    gap: 13px;
+  }
+
+  .difficulty-btn {
+    padding: 17px 19px;
+    gap: 6px;
+    min-height: 48px;
+  }
+
+  .difficulty-label {
+    font-size: 16px;
+  }
+
+  .difficulty-desc {
+    font-size: 12px;
+  }
+
+  .menu-footer {
+    margin-top: 22px;
+    padding-top: 22px;
+    font-size: 13px;
+  }
+}
+
 /* Mobile */
 @media (max-width: 480px) {
   .main-menu {
-    padding: 32px 20px;
+    padding: 28px 18px;
+  }
+
+  .menu-header {
+    margin-bottom: 24px;
   }
 
   .title {
     font-size: 28px;
+    margin-bottom: 6px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .menu-character {
+    margin: 24px 0;
+    padding: 24px 16px;
   }
 
   .character-large {
     font-size: 56px;
+    margin-bottom: 16px;
+  }
+
+  .welcome-message {
+    font-size: 15px;
+  }
+
+  .game-info {
+    gap: 10px;
+    margin: 24px 0;
+  }
+
+  .info-item {
+    padding: 14px;
+    font-size: 12px;
+  }
+
+  .info-item .icon {
+    font-size: 22px;
+  }
+
+  .difficulty-section {
+    margin: 24px 0;
+  }
+
+  .difficulty-section h2 {
+    font-size: 15px;
+    margin-bottom: 14px;
+  }
+
+  .difficulty-buttons {
+    gap: 12px;
+  }
+
+  .difficulty-btn {
+    padding: 16px 18px;
+    gap: 5px;
+    min-height: 48px;
+  }
+
+  .difficulty-label {
+    font-size: 16px;
+  }
+
+  .difficulty-desc {
+    font-size: 11px;
+  }
+
+  .menu-footer {
+    margin-top: 20px;
+    padding-top: 20px;
+    font-size: 12px;
   }
 }

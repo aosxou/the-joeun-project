@@ -1,0 +1,285 @@
+/* Color Variables */
+:root {
+  --primary: #1E88E5;
+  --secondary: #00BCD4;
+  --accent: #00897B;
+  --success: #4CAF50;
+  --error: #F44336;
+  --warning: #FFC107;
+  --bg-light: #F5F7FA;
+  --bg-white: #FFFFFF;
+  --text: #212121;
+  --text-light: #757575;
+  --border: #E0E0E0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-light);
+  color: var(--text);
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+/* Global Button Styles */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Keyboard focus styles */
+button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Improve color contrast for text */
+button {
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Skip animations for users with reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  button {
+    transition: none;
+  }
+
+  button:hover:not(:disabled) {
+    transform: none;
+  }
+}
+
+/* Error Overlay */
+.error-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.error-box {
+  background: white;
+  border-radius: 12px;
+  padding: 32px 28px;
+  max-width: 400px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.error-box h2 {
+  color: var(--error);
+  font-size: 24px;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.error-box p {
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.error-close-btn {
+  background: var(--primary);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 44px;
+  transition: all 0.3s ease;
+}
+
+.error-close-btn:hover {
+  background: #1565C0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(30, 136, 229, 0.3);
+}
+
+.error-close-btn:focus,
+.error-close-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(30, 136, 229, 0.2);
+}
+
+/* Loading Overlay */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.spinner-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.spinner-ring::after {
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 6px solid var(--primary);
+  border-color: var(--primary) transparent var(--primary) transparent;
+  animation: spinner-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+@keyframes spinner-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-spinner p {
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: more) {
+  .error-box {
+    border: 3px solid var(--text);
+  }
+
+  .error-close-btn {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .error-overlay {
+    animation: none;
+  }
+
+  .spinner-ring::after {
+    animation: none;
+    border-color: var(--primary);
+  }
+
+  .error-close-btn:hover {
+    transform: none;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app {
+    padding: 12px;
+  }
+
+  button {
+    min-height: 44px;
+    padding: 12px 16px;
+  }
+
+  .error-box {
+    padding: 24px 20px;
+    max-width: 90%;
+  }
+
+  .error-box h2 {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  .error-box p {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  .loading-spinner {
+    gap: 16px;
+  }
+
+  .spinner-ring {
+    width: 60px;
+    height: 60px;
+  }
+
+  .spinner-ring::after {
+    width: 48px;
+    height: 48px;
+    margin: 6px;
+    border-width: 5px;
+  }
+
+  .loading-spinner p {
+    font-size: 14px;
+  }
+}
